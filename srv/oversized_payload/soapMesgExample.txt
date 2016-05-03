@@ -1,0 +1,2 @@
+Untyped: 5
+Typed: 5

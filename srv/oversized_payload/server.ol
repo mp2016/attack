@@ -4,7 +4,7 @@ execution { concurrent }
 
 inputPort Server {
 Location: "socket://localhost:8080"
-Protocol: soap
+Protocol: soap { .wsdl = "server.wsdl" }
 Interfaces: MyIface
 }
 
