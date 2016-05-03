@@ -1,2 +1,28 @@
-Untyped: 5
-Typed: 5
+May 03, 2016 2:06:39 PM jolie.Interpreter logInfo
+INFO: [client.ol] [SOAP debug] Sending:
+POST * HTTP/1.1
+Host: localhost
+Accept-Encoding: gzip, deflate
+Connection: close
+Content-Type: text/xml; charset=utf-8
+Content-Length: 344
+SOAPAction: "/opUntyped"
+
+<?xml version="1.0" encoding="utf-8" ?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><SOAP-ENV:Body><opUntyped><x xsi:type="xsd:int">2</x><y xsi:type="xsd:int">3</y></opUntyped></SOAP-ENV:Body></SOAP-ENV:Envelope>
+May 03, 2016 2:06:39 PM jolie.Interpreter logInfo
+INFO: [client.ol] [SOAP debug] Receiving:
+<?xml version="1.0" encoding="utf-8" ?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><SOAP-ENV:Body><opUntypedResponse><result xsi:type="xsd:int">5</result></opUntypedResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+May 03, 2016 2:06:39 PM jolie.Interpreter logInfo
+INFO: [client.ol] [SOAP debug] Sending:
+POST * HTTP/1.1
+Host: localhost
+Accept-Encoding: gzip, deflate
+Connection: close
+Content-Type: text/xml; charset=utf-8
+Content-Length: 340
+SOAPAction: "/opTyped"
+
+<?xml version="1.0" encoding="utf-8" ?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><SOAP-ENV:Body><opTyped><x xsi:type="xsd:int">2</x><y xsi:type="xsd:int">3</y></opTyped></SOAP-ENV:Body></SOAP-ENV:Envelope>
+May 03, 2016 2:06:40 PM jolie.Interpreter logInfo
+INFO: [client.ol] [SOAP debug] Receiving:
+<?xml version="1.0" encoding="utf-8" ?><SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><SOAP-ENV:Body><opTypedResponse><result xsi:type="xsd:int">5</result></opTypedResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
