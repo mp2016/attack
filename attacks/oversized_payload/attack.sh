@@ -1,0 +1,2 @@
+cat header.txt attack.txt footer.txt > complete_attack.xml
+curl --header "Content-Type: text/xml;charset=UTF-8" --header "SOAPAction: opUntyped" --data @complete_attack.xml http://localhost:8080/opUntyped
