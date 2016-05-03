@@ -7,8 +7,10 @@ type SumResponse:void {
   .result:int
 }
 
+type AnySubNodes:void { ? }
+
 interface MyIface {
 RequestResponse:
-  opUntyped(undefined)(undefined),
+  opUntyped(AnySubNodes)(AnySubNodes),
   opTyped(SumRequest)(SumResponse)
 }

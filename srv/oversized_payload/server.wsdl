@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="myns.wsdl" xmlns:xsd1="myns.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="myns.wsdl" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xs:schema targetNamespace="myns.xsd" xmlns:sch="myns.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema"><xs:element name="opUntyped"><xs:complexType><xs:sequence/></xs:complexType></xs:element><xs:element name="opUntypedResponse"><xs:complexType><xs:sequence/></xs:complexType></xs:element><xs:element name="opTyped"><xs:complexType><xs:sequence><xs:element maxOccurs="1" minOccurs="1" name="x" type="xs:int"/><xs:element maxOccurs="1" minOccurs="1" name="y" type="xs:int"/></xs:sequence></xs:complexType></xs:element><xs:element name="opTypedResponse"><xs:complexType><xs:sequence><xs:element maxOccurs="1" minOccurs="1" name="result" type="xs:int"/></xs:sequence></xs:complexType></xs:element></xs:schema>
+  </wsdl:types>
+  <wsdl:message name="SumRequest">
+    <wsdl:part name="body" element="xsd1:opTyped"/>
+  </wsdl:message>
+  <wsdl:message name="SumResponse">
+    <wsdl:part name="body" element="xsd1:opTypedResponse"/>
+  </wsdl:message>
+  <wsdl:message name="AnySubNodes">
+    <wsdl:part name="body" element="xsd1:opUntypedResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="Server">
+    <wsdl:operation name="opUntyped">
+      <wsdl:input message="tns:AnySubNodes"/>
+      <wsdl:output message="tns:AnySubNodes"/>
+    </wsdl:operation>
+    <wsdl:operation name="opTyped">
+      <wsdl:input message="tns:SumRequest"/>
+      <wsdl:output message="tns:SumResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServerSOAPBinding" type="tns:Server">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http/"/>
+    <wsdl:operation name="opUntyped">
+      <soap:operation soapAction="opUntyped" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="opTyped">
+      <soap:operation soapAction="opTyped" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServerService">
+    <wsdl:port name="ServerServicePort" binding="tns:ServerSOAPBinding">
+      <soap:address location="http://localhost:8080"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
